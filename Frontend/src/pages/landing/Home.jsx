@@ -11,9 +11,9 @@ export const Home = () => {
         <HeroHome />
         <div className="bg-primary text-white">
           <FeatureHome />
-          {/* <JoinUsHome /> */}
+          <JoinUsHome />
         </div>
-        {/* <TestimonialHome /> */}
+        <TestimonialHome />
       </main>
     </>
   );
