@@ -1,0 +1,45 @@
+import axios from "axios";
+import { getTokenFromLocalStorage } from "../utils/localstorage.helper";
+
+const baseAxios = axios.create();
+
+baseAxios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
+  ? import.meta.env.VITE_BACKEND_URL
+  : "http://localhost:8080";
+
+// Add a request interceptor
+baseAxios.interceptors.request.use(
+  function (config) {
+    const token = getTokenFromLocalStorage();
+    if (token) {
+      config.headers.Authorization = "bearer " + token;
+    }
+    return config;
+  }, // function(config)
+  function (error) {
+    return Promise.reject(error);
+  } // function(error)
+);
+
+baseAxios.interceptors.response.use(
+  function (response) {
+    if (response.status === 200) {
+      // console.log('data loaded successfully');
+    }
+
+    if (response.status === 201) {
+      // console.log('data created    successfully');
+    }
+    return response.data;
+  }, // function(response)
+  function (error) {
+    const errorVal = error?.response?.data?.error;
+
+    if ([401].includes(error?.response?.status)) {
+      // logoutUser()
+    }
+    return Promise.reject(errorVal);
+  } // function(error)
+); // baseAxios.interceptors.response.use
+
+export default baseAxios;

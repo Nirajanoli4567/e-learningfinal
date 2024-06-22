@@ -1,0 +1,158 @@
+.test {
+    color: red;
+}
+
+
+.todo-section,
+.dialog-screen,
+.form-section {
+    padding: 14vh 12vw;
+}
+
+
+.dialog {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .backdrop{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background:rgba(0,0,0,0.32)
+    }
+
+    .dialog-content{
+        position: relative;
+        background:white;
+        border-radius: 8px;
+        padding:16px;
+    }
+
+}
+
+
+.form-section{
+    .form-area{
+        padding: 8px;
+        border:1px solid rgba(0,0,0,0.12);
+        input,select{
+            margin-top: 8px;
+            padding:4px 12px;
+            border:1px solid rgba(0,0,0,0.12)
+        }
+        .btn{
+            margin-top: 12px;
+        }
+    }
+    .todo-area{
+        margin-top:24px;
+    }
+    .todo-list{
+        margin-top:12px;
+        display: flex;
+        flex-wrap: wrap;
+        .todo-card{
+            width: 23.5%;
+            margin-right: 2%;
+            margin-bottom:8px;
+
+            &:nth-child(4n){
+                margin-right:0;
+            }
+        }
+    }
+}
+
+.todo-card{
+    padding: 8px;
+    border-radius: 4px;
+    border:1px solid rgba(0,0,0,0.12);
+}
+
+
+.auth-layout{
+    display: flex;
+    height:100vh;
+    width:100%;
+
+    .form-area, .image-area{
+        height:100%;
+        display: flex;
+    }
+
+    .form-area{
+        padding:5vw;
+        width:40%;
+        align-items: center;
+
+        .auth-title{
+            font-size:24px;
+            margin-bottom: 16px;
+        }
+        
+        .form-box{
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            border:1px solid rgba(0,0,0,0.2);
+            padding:4px 8px;
+            border-radius: 4px;
+
+            label{
+                font-size: 9px;
+            }
+
+            input{
+                margin-top: 4px;
+                border:none;
+
+                &:active, &:focus{
+                    outline:none;
+                }
+            }
+        }
+        
+        .forget-password{
+            text-align: right;
+        }
+
+        .btn-area{
+            margin-top:24px;
+
+            button{
+                width: 100%;
+            }
+        }
+
+        .sign-up-link{
+            margin-top:8px;
+            text-align: center;
+        }
+    }
+
+    .image-area{
+        width:60%;
+        align-items: flex-end;
+
+        img{
+            max-width: 90%;
+        }
+    }
+}
+
+
+.z-99{
+    z-index: 99;
+}
+
+.relative{
+    position: relative;
+}
