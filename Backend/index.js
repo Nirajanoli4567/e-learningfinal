@@ -39,19 +39,16 @@ const imageStorage = multer.diskStorage({
       null,
       file.fieldname + "_" + Date.now() + path.extname(file.originalname)
     );
-    // file.fieldname is name of the field (image)
-    // path.extname get the uploaded file extension
   },
 });
 
 const imageUpload = multer({
   storage: imageStorage,
   limits: {
-    fileSize: 9000000, // 1000000 Bytes = 1 MB
+    fileSize: 9000000,
   },
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(png|jpg)$/)) {
-      // upload only png and jpg format
       return cb(new Error("Please upload a Image"));
     }
     cb(undefined, true);
@@ -61,12 +58,6 @@ const imageUpload = multer({
 app.post("/blog", imageUpload.single("file"), (req, res) => {
   console.log(req.file);
   res.send("Hello");
-
-  // schema.create({
-  //   title:req.body.title,
-  //   category:req.body.category,
-  //   image:req.file.filename
-  // })
 });
 
 app.get("/file/:filename", (req, res) => {
@@ -80,9 +71,6 @@ app.get("/file/:filename", (req, res) => {
     res.send(data);
   });
 });
-// getting transactions on the basis of type, account,
-// date feb, top 5 transactions,
-// transactions over 5000, transactions under 4000
 
 app.listen(8080, async (req, res) => {
   console.log("App is running on port 8080");

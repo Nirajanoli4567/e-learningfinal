@@ -4,39 +4,40 @@ import { NavLink } from "react-router-dom";
 
 const DashboardSidebar = () => {
   return (
-    <div className="h-full relative dashboard-sidebar">
+    <div className="h-full relative dashboard-sidebar flex flex-col mt-lg  bg-white ">
       <div className="logo absolute top-none flex justify-center items-center w-full">
-        Expense
+        <a href="/dashboard/home" className="decoration-0">
+          {" "}
+          E-learning
+        </a>
       </div>
-      <div className=" h-full flex flex-col justify-center gap-xs items-center">
-        <NavLink to="/dashboard/home" className={`p-sm`}>
-          <IconCalendar />
-        </NavLink>
+      <div className="flex flex-col flex-grow justify-start items-center mt-2xl">
+        <div style={{ marginBottom: "10px" }}>
+          <NavLink
+            to="/dashboard/home"
+            className="p-sm flex items-center justify-center"
+          >
+            <IconCalendar />
+          </NavLink>
+        </div>
 
-        <NavLink to="/dashboard/transactions" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/account" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/calendar" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/stats" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/stats" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/stats" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/stats" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
-        <NavLink to="/dashboard/stats" className={` p-sm`}>
-          <IconCalendar />
-        </NavLink>
+        <div style={{ marginBottom: "10px" }}>
+          <NavLink
+            to="/dashboard/transactions"
+            className="p-sm flex items-center justify-center"
+          >
+            <IconCalendar />
+          </NavLink>
+        </div>
+
+        <div style={{ marginBottom: "10px" }}>
+          <NavLink
+            to="/dashboard/account"
+            className="p-sm flex items-center justify-center"
+          >
+            <IconCalendar />
+          </NavLink>
+        </div>
       </div>
     </div>
   );
